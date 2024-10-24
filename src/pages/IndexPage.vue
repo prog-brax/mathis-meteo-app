@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex flex-top">
-    <h3>Météo de la semaine</h3>
+    <h3>Météo</h3>
     <q-card class="my-card" v-for="(code, index) in dailyCodes" :key="index">
       <img :src="codesReference[code].day.image" />
       <q-card-section>
