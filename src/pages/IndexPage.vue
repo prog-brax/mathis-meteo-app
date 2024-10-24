@@ -7,6 +7,7 @@
         <div class="text-h6 flex-center">Météo du jour</div>
         <q-card-section class="q-pt-none">
           {{ codesReference[code].day.description }}
+          {{ tempMax }}
         </q-card-section>
       </q-card-section>
     </q-card>
@@ -27,6 +28,7 @@ const meteoDay = ref("");
 const meteoIm = ref("");
 const dailyCodes = ref([]);
 const codesReference = ref(codes);
+const tempMax = ref("");
 
 onMounted(async () => {
   const meteoResponse = await axios.get(
@@ -37,5 +39,6 @@ onMounted(async () => {
   meteoDay.value = codes[code].day.description;
   meteoIm.value = codes[code].day.image;
   console.log(meteoResponse);
+  tempMax.value = meteoResponse.data.current.temperature_2m_max;
 });
 </script>
